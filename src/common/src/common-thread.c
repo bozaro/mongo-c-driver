@@ -89,9 +89,7 @@ mcommon_thread_join(bson_thread_t thread)
       return backend->thread_join(&thread);
    }
    int result = pthread_join(*(pthread_t *)thread, NULL);
-   if (result == 0) {
-      free(thread);
-   }
+   free(thread);
    return result;
 }
 
